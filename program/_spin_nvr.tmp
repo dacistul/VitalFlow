@@ -1,0 +1,9 @@
+never safety_check {    /* !([] (! ((pump_active) && ((glucose_level<70))))) */
+T0_init:
+	do
+	:: atomic { (! ((! ((pump_active) && ((glucose_level<70)))))) -> assert(!(! ((! ((pump_active) && ((glucose_level<70))))))) }
+	:: (1) -> goto T0_init
+	od;
+accept_all:
+	skip
+}
