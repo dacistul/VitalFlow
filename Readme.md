@@ -1,5 +1,5 @@
-PROJECT: VitalFlow - Automated Insulin Pump Verification
-TEAM: Dumitrof Dan-Stefan, Ion Cristina, Stavarache Mihaela
+PROJECT: VitalFlow - Automated Insulin Pump Verification <br>
+TEAM: Dumitrof Dan-Stefan, Stavarache Mihaela, Ion Cristina <br>
 DATE: 19-NOV-2025
 -------------------------------------------------------
 FILE LIST:
