@@ -1,0 +1,34 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+		{
+			"type": "java",
+			"name": "VitalFlowGUI",
+			"request": "launch",
+			"mainClass": "com.vitalflow.VitalFlowGUI",
+			"projectName": "Project_2973c3f1"
+		},
+		{
+			"type": "java",
+			"name": "Launch VitalFlow GUI",
+			"request": "launch",
+			"mainClass": "com.vitalflow.VitalFlowGUI",
+			"projectName": "java-impl",
+			"sourcePaths": [
+				"java-impl/src"
+			],
+			"outputPath": "java-impl/bin"
+		},
+		{
+			"type": "java",
+			"name": "Launch Console Simulation",
+			"request": "launch",
+			"mainClass": "com.vitalflow.VitalFlowApp",
+			"projectName": "java-impl",
+			"sourcePaths": [
+				"java-impl/src"
+			],
+			"outputPath": "java-impl/bin"
+		}
+	]
+}
