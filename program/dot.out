@@ -1,8 +1,0 @@
-digraph claim_safety_check {
-size="8,10";
-  GT [shape=box,style=dotted,label="safety_check"];
-  GT -> S6;
-	S6 -> S2  [color=black,style=dashed,label="(!(!((pump_active&&(glucose_level<70)))))"];
-	S6 -> S6  [color=black,style=bold,label="(1)"];
-	S2 -> S6  [color=black,style=bold,label="assert(!(!(!((pump_active&&(glucose_level<70))))))"];
-}

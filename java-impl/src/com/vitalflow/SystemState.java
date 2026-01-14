@@ -1,9 +1,5 @@
 package com.vitalflow;
 
-/**
- * Represents the shared state of the system, mirroring the global variables in vitalflow.pml.
- * Access to these variables is synchronized to prevent race conditions, ensuring thread safety.
- */
 public class SystemState {
     private int glucoseLevel = 100;
     private int insulinReservoir = 10;
@@ -16,7 +12,6 @@ public class SystemState {
         support.addPropertyChangeListener(pcl);
     }
 
-    // --- Glucose Level Access ---
     public synchronized int getGlucoseLevel() {
         return glucoseLevel;
     }
@@ -28,12 +23,10 @@ public class SystemState {
         // System.out.println("DEBUG: Glucose updated to " + glucoseLevel);
     }
 
-    // --- Insulin Reservoir Access ---
     public synchronized int getInsulinReservoir() {
         return insulinReservoir;
     }
 
-    // --- Pump Status Access ---
     public synchronized boolean isPumpActive() {
         return pumpActive;
     }
@@ -44,7 +37,6 @@ public class SystemState {
         support.firePropertyChange("pumpActive", oldVal, this.pumpActive);
     }
 
-    // --- Alarm Status Access ---
     public synchronized boolean isAlarmTriggered() {
         return alarmTriggered;
     }
@@ -55,15 +47,6 @@ public class SystemState {
         support.firePropertyChange("alarmTriggered", oldVal, this.alarmTriggered);
     }
 
-    /**
-     * Atomically executes the pumping action:
-     * 1. Checks reservoir.
-     * 2. Decrements reservoir.
-     * 3. Lowers glucose.
-     * 4. Sets pump active status.
-     * 
-     * Mirrors the 'atomic' block in the Promela Pump process.
-     */
     public synchronized void executePumpCycle() {
         if (insulinReservoir > 0) {
             boolean oldPump = pumpActive;
@@ -72,7 +55,7 @@ public class SystemState {
 
             pumpActive = true;
             insulinReservoir--;
-            glucoseLevel -= 15; // Insulin lowers sugar
+            glucoseLevel -= 15;
             
             support.firePropertyChange("pumpActive", oldPump, true);
             support.firePropertyChange("reservoir", oldRes, insulinReservoir);
@@ -84,7 +67,7 @@ public class SystemState {
             boolean oldPump = pumpActive;
             
             alarmTriggered = true;
-            pumpActive = false; // Cannot pump if empty
+            pumpActive = false;
             
             support.firePropertyChange("alarmTriggered", oldAlarm, true);
             support.firePropertyChange("pumpActive", oldPump, false);

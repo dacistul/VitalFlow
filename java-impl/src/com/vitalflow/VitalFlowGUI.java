@@ -29,7 +29,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-        // Use a nicer Look and Feel
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) { }
@@ -44,7 +43,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         mainPanel.setBorder(new EmptyBorder(10, 10, 10, 10));
         setContentPane(mainPanel);
 
-        // --- Top Dashboard Panel ---
         JPanel dashboard = new JPanel(new GridLayout(1, 4, 10, 0));
         dashboard.setPreferredSize(new Dimension(800, 100));
 
@@ -55,7 +53,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
 
         mainPanel.add(dashboard, BorderLayout.NORTH);
 
-        // --- Center Log Panel ---
         logArea = new JTextArea();
         logArea.setEditable(false);
         logArea.setFont(new Font("Consolas", Font.PLAIN, 12));
@@ -66,7 +63,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         scrollPane.setBorder(BorderFactory.createTitledBorder("System Event Log"));
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         
-        // --- Bottom Control Panel ---
         JPanel controls = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         JButton btnExit = new JButton("Exit Simulation");
         btnExit.addActionListener(e -> System.exit(0));
@@ -97,7 +93,7 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         System.out.println("Initializing VitalFlow System Components...");
         
         state = new SystemState();
-        state.addPropertyChangeListener(this); // Subscribe to updates
+        state.addPropertyChangeListener(this);
 
         BlockingQueue<Integer> sensorDataChannel = new ArrayBlockingQueue<>(1);
         BlockingQueue<Boolean> pumpCmdChannel = new ArrayBlockingQueue<>(1);
@@ -113,7 +109,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         System.out.println("System Running. Monitoring threads started.");
     }
 
-    // --- Output Redirection ---
     private void redirectSystemStreams() {
         OutputStream out = new OutputStream() {
             @Override
@@ -137,7 +132,6 @@ public class VitalFlowGUI extends JFrame implements PropertyChangeListener {
         });
     }
 
-    // --- State Listener ---
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
         SwingUtilities.invokeLater(() -> {
