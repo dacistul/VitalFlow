@@ -1,6 +1,4 @@
-PROJECT: VitalFlow - Automated Insulin Pump Verification <br>
-TEAM: Dumitrof Dan-Stefan, Stavarache Mihaela, Ion Cristina <br>
-DATE: 14-JAN-2026
+PROJECT: VitalFlow - Automated Insulin Pump Verification
 -------------------------------------------------------
 
 ## 1. Project Overview
@@ -9,8 +7,8 @@ This project contains both the **Formal Verification** (Promela/Spin) and the **
 ## 2. File List
 **Formal Verification (Folder: `program/`)**
 *   `vitalflow.pml`: Promela source code for logic verification.
-*   `TP-VF-001.md`: Master Test Plan (IEEE 829).
-*   `TSR-VF-001.md`: Test Summary Report (IEEE 829).
+*   `TP-JAVA-001.md`: Master Test Plan (IEEE 829).
+*   `TSR-JAVA-001.md`: Test Summary Report (IEEE 829).
 
 **Java Implementation (Folder: `java-impl/`)**
 *   `src/com/vitalflow/`: Source code for Sensor, Controller, Pump, and GUI.
