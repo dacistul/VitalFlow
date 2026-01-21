@@ -3,6 +3,13 @@
     "configurations": [
 		{
 			"type": "java",
+			"name": "VitalFlowApp",
+			"request": "launch",
+			"mainClass": "com.vitalflow.VitalFlowApp",
+			"projectName": "Project_2973c3f1"
+		},
+		{
+			"type": "java",
 			"name": "VitalFlowGUI",
 			"request": "launch",
 			"mainClass": "com.vitalflow.VitalFlowGUI",

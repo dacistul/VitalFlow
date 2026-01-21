@@ -8,7 +8,6 @@ public class VitalFlowApp {
         System.out.println("===============================================");
         System.out.println("   VitalFlow - Insulin Pump Java Simulation    ");
         System.out.println("===============================================");
-        System.out.println("Based on verified Promela model: vitalflow.pml");
         System.out.println("Press Ctrl+C to stop.");
         System.out.println("-----------------------------------------------");
 
