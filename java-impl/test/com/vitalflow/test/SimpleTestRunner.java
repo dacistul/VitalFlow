@@ -21,6 +21,25 @@ public class SimpleTestRunner {
     @Target(ElementType.METHOD)
     public @interface Before {}
 
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Usage: java SimpleTestRunner <test-class-name-1> <test-class-name-2> ...");
+            System.exit(1);
+        }
+
+        List<Class<?>> classes = new ArrayList<>();
+        for (String className : args) {
+            try {
+                classes.add(Class.forName(className));
+            } catch (ClassNotFoundException e) {
+                System.err.println("Could not find test class: " + className);
+                System.exit(1);
+            }
+        }
+
+        runTests(classes.toArray(new Class<?>[0]));
+    }
+
     public static void runTests(Class<?>... classes) {
         int totalTests = 0;
         int passedTests = 0;

@@ -21,8 +21,8 @@ echo Running Unit Tests...
 echo.
 
 REM 3. Run the Custom Test Runner
-java -cp java-impl\bin com.vitalflow.test.SimpleTestRunner \
-    com.vitalflow.test.SystemStateTest \
+java -cp java-impl\bin com.vitalflow.test.SimpleTestRunner ^
+    com.vitalflow.test.SystemStateTest ^
     com.vitalflow.test.ControllerLogicTest
 
 if %errorlevel% neq 0 (
